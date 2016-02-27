@@ -11,6 +11,10 @@ module.exports = function(config) {
     frameworks: ['systemjs', 'jasmine'],
 
     systemjs: {
+      typescriptOptions: {
+        module: "amd",
+        targetLib: "es5"
+      },
       configFile: 'jspm.config.js',
       config: {
         paths: {
@@ -36,7 +40,8 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'test/unit/app.spec.ts'
+
+      'test/**/*.spec.ts'
     ],
 
 
@@ -75,7 +80,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS'],
+    browsers: ['Chrome'],
 
 
     // Continuous Integration mode

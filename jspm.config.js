@@ -1,22 +1,30 @@
 System.config({
+baseUrl: '.',
   defaultJSExtensions: true,
-  transpiler: "babel",
-  babelOptions: {
-    "optional": [
-      "runtime",
-      "optimisation.modules.system"
-    ]
+  transpiler: "ts",
+
+typescriptOptions: {
+    module: "amd",                // also accepts "strict"
+    tsconfig: true               // also accepts a path
   },
+
   paths: {
     "src/*": "src/*",
+    "dist/*": "dist/*",
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*"
   },
 
+
   map: {
+
     "babel": "npm:babel-core@5.8.35",
     "babel-runtime": "npm:babel-runtime@5.8.35",
     "core-js": "npm:core-js@1.2.6",
+    "ts": "github:frankwallis/plugin-typescript@4.0.1",
+    "github:frankwallis/plugin-typescript@4.0.1": {
+      "typescript": "npm:typescript@1.8.2"
+    },
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
     },

@@ -5,7 +5,7 @@
         "module": "amd",
         "declaration": false,
         "noImplicitAny": false,
-        "noResolve": true,
+
         "removeComments": true,
         "noLib": false,
         "emitDecoratorMetadata": true,
