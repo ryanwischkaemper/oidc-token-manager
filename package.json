@@ -17,17 +17,34 @@
   },
   "homepage": "https://github.com/IdentityModel/oidc-token-manager",
   "devDependencies": {
-    "bower": "^1.4.0",
-    "del": "^1.1.1",
+    "del": "^1.1.0",
     "gulp": "^3.8.11",
+    "gulp-changed": "^1.3.0",
     "gulp-concat": "^2.5.2",
+    "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.0",
+    "gulp-sourcemaps": "^1.6.0",
     "gulp-typescript": "^2.12.0",
     "gulp-uglify": "^1.1.0",
-    "typescript": "^1.8.2"
+    "jasmine-core": "^2.4.1",
+    "jspm": "^0.16.30",
+    "karma": "^0.13.21",
+    "karma-chrome-launcher": "^0.2.2",
+    "karma-jasmine": "^0.3.7",
+    "require-dir": "^0.3.0",
+    "run-sequence": "^1.1.5",
+    "systemjs-builder": "^0.15.10",
+    "typescript": "^1.8.2",
+    "vinyl-paths": "^2.1.0"
   },
   "jspm": {
     "main": "dist/oidc-token-manager",
-    "format": "global"
+    "format": "global",
+    "configFile": "jspm.config.js",
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4"
+    }
   }
 }
