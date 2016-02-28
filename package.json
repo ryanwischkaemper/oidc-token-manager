@@ -4,6 +4,7 @@
   "description": "Library to manage tokens obtained via OpenID Connect (OIDC)",
   "main": "dist/oidc-token-manager.js",
   "scripts": {
+    "prepublish": "typings install",
     "test": "gulp test"
   },
   "repository": {
@@ -31,10 +32,10 @@
     "vinyl-paths": "^1.0.0"
   },
   "jspm": {
-    "registry": "npm",
+    "registry": "github",
     "devDependencies": {
-      "plugin-babel": "systemjs-plugin-babel@^0.0.6",
-      "core-js": "^1.1.4",
+      "plugin-babel": "npm:systemjs-plugin-babel@^0.0.6",
+      "core-js": "npm:core-js@^1.1.4",
       "systemjs-hot-reloader": "capaj/systemjs-hot-reloader@^0.5.3",
       "ts": "frankwallis/plugin-typescript@^4.0.0"
     },
@@ -44,8 +45,8 @@
       "child_process": "jspm/nodelibs-child_process@^0.2.0-alpha",
       "constants": "jspm/nodelibs-constants@^0.2.0-alpha",
       "crypto": "jspm/nodelibs-crypto@^0.2.0-alpha",
-      "es6-promise": "^3.0.2",
-      "es6-shim": "^0.33.3",
+      "es6-promise": "npm:es6-promise@^3.0.2",
+      "es6-shim": "npm:es6-shim@^0.33.3",
       "events": "jspm/nodelibs-events@^0.2.0-alpha",
       "fs": "jspm/nodelibs-fs@^0.2.0-alpha",
       "http": "jspm/nodelibs-http@^0.2.0-alpha",
@@ -82,4 +83,5 @@
       }
     }
   }
-}
+}
+

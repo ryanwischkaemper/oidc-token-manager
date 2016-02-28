@@ -44,7 +44,7 @@
                 popup_redirect_uri: window.location.protocol + "//" + window.location.host + "/popup.html",
                 silent_renew: true
             };
-            var mgr = new result.TokenManager(config);
+            var mgr = new result.OidcTokenManager(config);
             window.mgr = mgr;
 
             if (!mgr.expired) {
