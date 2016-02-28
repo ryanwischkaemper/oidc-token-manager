@@ -1,11 +1,10 @@
-import * as Promise from 'es6-promise';
 import {FrameLoader} from './FrameLoader';
 import {Utils} from './Utils';
 import {OidcClient} from './OidcClient';
 import {Token} from './Token';
 
 
-export class TokenManager {
+export class OidcTokenManager {
   _settings: any;
   oidcClient: OidcClient;
   _callbacks: any;
@@ -88,7 +87,7 @@ export class TokenManager {
     if (this._token) return this._token.session_state;
   }
 
-  private configureTokenExpiring(mgr: TokenManager): void {
+  private configureTokenExpiring(mgr: OidcTokenManager): void {
     function callback() {
       handle = null;
       mgr._callTokenExpiring();
@@ -127,7 +126,7 @@ export class TokenManager {
     mgr.addOnTokenRemoved(cancel);
   }
 
-  private configureAutoRenewToken(mgr: TokenManager): void {
+  private configureAutoRenewToken(mgr: OidcTokenManager): void {
     if (mgr._settings.silent_redirect_uri && mgr._settings.silent_renew) {
 
       mgr.addOnTokenExpiring(function() {
@@ -140,7 +139,7 @@ export class TokenManager {
     }
   }
 
-  private configureTokenExpired(mgr: TokenManager): void {
+  private configureTokenExpired(mgr: OidcTokenManager): void {
     function callback() {
       handle = null;
 
@@ -178,7 +177,7 @@ export class TokenManager {
     mgr.addOnTokenRemoved(cancel);
   }
 
-  private loadToken(mgr: TokenManager): void {
+  private loadToken(mgr: OidcTokenManager): void {
     mgr._token = null;
     if (mgr._settings.persist) {
       let tokenJson = mgr._settings.store.getItem(mgr._settings.persistKey);

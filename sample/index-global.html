@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
@@ -15,24 +15,16 @@
 
   <div>
     <p style="font-size:larger">
-      SystemJS is loading this code. From the browser's console, run <span style="font-weight:bold">showModuleRelationships()</span> to see
-      a visual layout of this code's heirarchy.
+      SystemJS is not needed with this build - our modules are now exposed globally. Get an instance of a <span style="font-weight:bold">OidcTokenManager</span> by calling <span style="font-weight:bold">new IdentityModel.OidcTokenManager()</span>
     </p>
   </div>
 
   <script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
-
-  <script src="../jspm_packages/system.src.js"></script>
-  <script src="../jspm.browser.js"></script>
-  <script src="../jspm.config.js"></script>
-  <script src="system.yuml.js"></script>
+  <script src="../dist/oidc-token-manager.global.js"></script>
 
   <script>
     $(function () {
 
-            System.import('src').then(function(result){
-              console.log('running');
-              console.dir(result);
             var config = {
                 authority: "https://localhost:44333/core",
                 client_id: "js.tokenmanager",
@@ -44,7 +36,7 @@
                 popup_redirect_uri: window.location.protocol + "//" + window.location.host + "/popup.html",
                 silent_renew: true
             };
-            var mgr = new result.TokenManager(config);
+            var mgr = new IdentityModel.OidcTokenManager(config);
             window.mgr = mgr;
 
             if (!mgr.expired) {
@@ -97,10 +89,6 @@
             mgr.addOnTokenObtained(toggleForget);
             mgr.addOnTokenRemoved(toggleForget);
             toggleForget();
-
-             }).catch(function(err){
-          console.error('An error occurred while bootstrapping the sample app. ' + err.message);
-        });
         });
   </script>
 </body>

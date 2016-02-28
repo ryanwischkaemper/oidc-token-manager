@@ -1,5 +1,3 @@
-import {Promise} from 'es6-promise';
-
 export class OidcClient
 {
   constructor(settings: any) { }

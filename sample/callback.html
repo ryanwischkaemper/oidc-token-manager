@@ -6,7 +6,10 @@
 <body>
     <div id="message"></div>
     <div><a href="index.html">Go Back To Home Page</a></div>
-    <script src="jquery-2.1.0.min.js"></script>
+    <script src="../jspm_packages/system.src.js"></script>
+  <script src="../jspm.browser.js"></script>
+  <script src="../jspm.config.js"></script>
+  <script src="system.yuml.js"></script>
     <script src="oidc-token-manager.js"></script>
     <script>
         var config = {
@@ -15,15 +18,18 @@
             //load_user_profile : false,
             //filter_protocol_claims: false,
         };
-        var mgr = new OidcTokenManager(config);
 
-        mgr.processTokenCallbackAsync().then(function () {
-            console.log("Successfully Obtained Token", mgr.access_token);
-            $("#message").text("Successfully Obtained Token", mgr.access_token);
-            window.location.replace("/index.html");
-        }, function (error) {
-            $("#message").text("Problem Getting Token : " + (error.message || error));
-        });
+        System.import('src').then(function(result){
+          var mgr = new OidcTokenManager(config);
+
+          mgr.processTokenCallbackAsync().then(function () {
+              console.log("Successfully Obtained Token", mgr.access_token);
+              $("#message").text("Successfully Obtained Token", mgr.access_token);
+              window.location.replace("/index.html");
+          }, function (error) {
+              $("#message").text("Problem Getting Token : " + (error.message || error));
+          });
+        }).catch(function(err){console.error(err.message);});
     </script>
 </body>
 

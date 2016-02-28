@@ -2,21 +2,33 @@
 
 Library to manage tokens obtained via OpenID Connect (OIDC)
 
-## Running the Tests
-`gulp test` or `gulp tdd` to have the tests rerun on changes.
+## Install
+(not currently published yet, though)
+
+Use **npm**
+
+`npm install oidc-token-manager --save`
+
+or use **jspm**
+
+`jspm install oidc-token-manager`
+
+## Building the Source
+```
+git clone https://github.com/IdentityModel/oidc-token-manager.git
+cd oidc-token-manager
+npm install -g jspm@beta
+jspm install
+gulp build
+```
 
 ## Running the Sample
-`gulp serve:sample`
+`gulp serve`
 
-## Building
-`gulp build`
-
-## Install
-To install you can either get the oidc-token-manager via bower, via the dist folder in this repo, or you can clone this repo and run gulp yourself.
+## Running the Tests
+`gulp test` or `gulp tdd` to have the tests rerun on changes.
 
 ## Docs
 Some initial docs are [here](https://github.com/IdentityModel/oidc-token-manager/wiki).
 
-## Samples
-There are some samples in this repo.
 

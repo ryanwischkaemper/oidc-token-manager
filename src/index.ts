@@ -1,4 +1,4 @@
-import {TokenManager} from './TokenManager';
+import {OidcTokenManager} from './OidcTokenManager';
 
 
-export {TokenManager};
+export {OidcTokenManager};
