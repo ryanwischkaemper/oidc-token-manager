@@ -19,7 +19,7 @@ var bsConfig = {
 };
 
 
-gulp.task('serve:sample', ['bundle'], function(done) {
+gulp.task('serve:sample', ['build'], function(done) {
   var bs = browserSync.create(bsConfig.instancename);
   bs.init(bsConfig.config, function() {
     done();
