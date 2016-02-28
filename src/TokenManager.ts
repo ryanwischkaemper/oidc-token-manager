@@ -1,4 +1,4 @@
-import {Promise} from 'es6-promise';
+import * as Promise from 'es6-promise';
 import {FrameLoader} from './FrameLoader';
 import {Utils} from './Utils';
 import {OidcClient} from './OidcClient';

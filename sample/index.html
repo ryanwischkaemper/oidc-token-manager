@@ -1,19 +1,26 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
+
 <head>
-    <title></title>
+  <title></title>
 </head>
+
 <body>
-    <div id="message"></div>
-    <button id="token">Get Token</button>
-    <button id="dialog">Get Token (via dialog)</button>
-    <button id="forget">Forget Token</button>
-    <button id="signout">Logout of IdentityServer</button>
-    <pre id="result"></pre>
-    <script src="jquery-2.1.0.min.js"></script>
-    <script src="oidc-token-manager.js"></script>
-    <script>
-        $(function () {
+  <div id="message"></div>
+  <button id="token">Get Token</button>
+  <button id="dialog">Get Token (via dialog)</button>
+  <button id="forget">Forget Token</button>
+  <button id="signout">Logout of IdentityServer</button>
+  <pre id="result"></pre>
+  <script src="https://code.jquery.com/jquery-2.1.0.min.js"></script>
+
+  <script src="system.js"></script>
+  <script src="jspm.config.js"></script>
+  <script src="oidc-token-manager.js"></script>
+  <script>
+    $(function () {
+            System.import('src/TokenManager').then(function(result){
+
             var config = {
                 authority: "https://localhost:44333/core",
                 client_id: "js.tokenmanager",
@@ -25,7 +32,7 @@
                 popup_redirect_uri: window.location.protocol + "//" + window.location.host + "/popup.html",
                 silent_renew: true
             };
-            var mgr = new OidcTokenManager(config);
+            var mgr = new result.TokenManager(config);
             window.mgr = mgr;
 
             if (!mgr.expired) {
@@ -78,7 +85,12 @@
             mgr.addOnTokenObtained(toggleForget);
             mgr.addOnTokenRemoved(toggleForget);
             toggleForget();
+
+             }).catch(function(err){
+          console.error('An error occurred while bootstrapping the sample app. ' + err.message);
         });
-    </script>
+        });
+  </script>
 </body>
+
 </html>

@@ -2,9 +2,9 @@
   "name": "oidc-token-manager",
   "version": "1.2.0",
   "description": "Library to manage tokens obtained via OpenID Connect (OIDC)",
-  "main": "oidc-token-manager.js",
+  "main": "dist/oidc-token-manager.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "gulp test"
   },
   "repository": {
     "type": "git",
@@ -17,12 +17,11 @@
   },
   "homepage": "https://github.com/IdentityModel/oidc-token-manager",
   "devDependencies": {
+    "browser-sync": "^2.11.1",
     "del": "^1.1.0",
     "gulp": "^3.8.11",
     "gulp-changed": "^1.3.0",
-    "gulp-concat": "^2.5.2",
     "gulp-plumber": "^1.1.0",
-    "gulp-rename": "^1.2.0",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-typescript": "^2.12.0",
     "gulp-uglify": "^1.1.0",
@@ -31,10 +30,7 @@
     "karma": "^0.13.21",
     "karma-chrome-launcher": "^0.2.2",
     "karma-jasmine": "^0.3.7",
-    "karma-phantomjs-launcher": "^0.2.1",
     "karma-systemjs": "^0.12.0",
-    "phantomjs": "^1.9.18",
-    "phantomjs-polyfill": "0.0.1",
     "require-dir": "^0.3.0",
     "run-sequence": "^1.1.5",
     "systemjs-builder": "^0.15.10",
@@ -44,16 +40,14 @@
   "jspm": {
     "configFile": "jspm.config.js",
     "dependencies": {
+      "es6-promise": "npm:es6-promise@^3.1.2",
       "ts": "github:frankwallis/plugin-typescript@^4.0.1"
     },
     "devDependencies": {
       "babel": "npm:babel-core@^5.8.24",
       "babel-runtime": "npm:babel-runtime@^5.8.24",
-      "core-js": "npm:core-js@^1.1.4"
+      "core-js": "npm:core-js@^1.1.4",
+      "ts-runtime": "npm:babel-runtime@^5.8.24"
     }
-  },
-  "old_jspm": {
-    "main": "dist/oidc-token-manager",
-    "format": "global"
   }
 }
